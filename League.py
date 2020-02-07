@@ -20,7 +20,7 @@ def myRandom():
 	randomNumbers = []
 	for i in range(0,3):
 		rn = randint(0,6)
-
+		
 		while rn in randomNumbers:
 			rn = randint(0,6)
 
@@ -33,7 +33,7 @@ def reportAPlayer(posX, posY):
 	#reportButton = pyautogui.locateCenterOnScreen('./reportIcon/report4.PNG')
 	
 	cwd = os.path.abspath(os.getcwd())
-	print(cwd)
+	#print(cwd)
 	reportIcons = listdir(cwd + "/reportIcon")
 		
 	for i in reportIcons:
@@ -78,7 +78,7 @@ def reportAPlayer(posX, posY):
 		if commentText:
 			pyautogui.click(commentText)
 			#pyautogui.typewrite("asjadlasdk")
-			pyperclip.copy('幹你娘爛成這樣')
+			pyperclip.copy('外掛')
 			pyautogui.hotkey('ctrl','v')
 
 		reportConfirm = pyautogui.locateCenterOnScreen('reportConfirm.PNG')
@@ -93,12 +93,20 @@ def reportAPlayer(posX, posY):
 	else:
 		print("not found")
 
+#################################################
+# main script: 
 
 # locate aram icon
-AramIcon = pyautogui.locateCenterOnScreen('ARAMWin.PNG')
-AramLIcon = pyautogui.locateCenterOnScreen('ARAMLose.PNG')
+cwd = os.path.abspath(os.getcwd())
+AramIconFiles = listdir(cwd + "/AramIcon")
+
+for i in AramIconFiles:
+	AramIcon = pyautogui.locateCenterOnScreen(cwd + '/AramIcon/' + i)
+	if AramIcon:
+		break
+
 if AramIcon:
-	print(AramIcon)
+	#print(AramIcon)
 	#y = 130
 	ys = enemyY
 
@@ -115,46 +123,10 @@ if AramIcon:
 	#reportAPlayer(AramIcon.x, AramIcon.y + 415)
 	#reportAPlayer(AramIcon.x, AramIcon.y + 450)
 else:
-	print("not found")
-
-
-if AramLIcon:
-	print(AramIcon)
-	#y = 130
-	ys = enemyY
-
-	for y in ys:
-		reportAPlayer(AramLIcon.x, AramLIcon.y + y)
-
-	#reportAPlayer(AramIcon.x, AramIcon.y + 130)
-	#reportAPlayer(AramIcon.x, AramIcon.y + 165)
-	#reportAPlayer(AramIcon.x, AramIcon.y + 200)
-	#reportAPlayer(AramIcon.x, AramIcon.y + 235)
-	#reportAPlayer(AramIcon.x, AramIcon.y + 310)
-	#reportAPlayer(AramIcon.x, AramIcon.y + 345)
-	#reportAPlayer(AramIcon.x, AramIcon.y + 380)
-	#reportAPlayer(AramIcon.x, AramIcon.y + 415)
-	#reportAPlayer(AramIcon.x, AramIcon.y + 450)
-else:
-	print("not found")
+	print("Aram Icon not found")
 
 
 
-#while 1:
-#	takeButton = pyautogui.locateCenterOnScreen('take.PNG')
-#	#print(takeButton)
-#	if takeButton:
-#		pyautogui.click(takeButton) #(1457, 897)
-#		print("found take button, clicked.")
-#	else:
-#		print("take button not found")
-#
-#	time.sleep(5)
-#
-#	closeButton = pyautogui.locateCenterOnScreen('tos-close.PNG')
-#	if closeButton:
-#		pyautogui.click(closeButton) #
-#		print("found close button, clicked.")
-#	else:
-#		print("close button not found")
-#	time.sleep(5)#
+
+
+#################################################
