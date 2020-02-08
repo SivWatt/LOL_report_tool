@@ -66,12 +66,12 @@ def reportAPlayer(posX, posY):
 		reportConfirm = pyautogui.locateCenterOnScreen(cwd + '/' + 'reportConfirm.PNG')
 		if reportConfirm:
 			pyautogui.moveTo(reportConfirm)
-			#pyautogui.click(reportConfirm)
+			pyautogui.click(reportConfirm)
 
 		# cancel report for testing
-		cancel = pyautogui.locateCenterOnScreen('cancel.PNG')
-		if cancel:
-			pyautogui.click(cancel)
+		#cancel = pyautogui.locateCenterOnScreen('cancel.PNG')
+		#if cancel:
+		#	pyautogui.click(cancel)
 
 
 #################################################
