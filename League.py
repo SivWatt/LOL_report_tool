@@ -5,11 +5,14 @@ from random import seed
 from random import randint
 import pyperclip
 import os
+import sys
 from os import listdir
 from os.path import isfile, isdir, join
 
+
 teamY = [ 130, 165, 200, 235 ]
 enemyY = [ 310, 345, 380, 415, 450 ]
+cwd = sys.argv[0]
 
 
 def windowEnumerationHandler(hwnd, top_windows):
@@ -32,7 +35,7 @@ def reportAPlayer(posX, posY):
 	pyautogui.moveTo(posX, posY)
 	#reportButton = pyautogui.locateCenterOnScreen('./reportIcon/report4.PNG')
 	
-	cwd = os.path.abspath(os.getcwd())
+	#cwd = sys.argv[0]
 	#print(cwd)
 	reportIcons = listdir(cwd + "/reportIcon")
 		
@@ -97,7 +100,7 @@ def reportAPlayer(posX, posY):
 # main script: 
 
 # locate aram icon
-cwd = os.path.abspath(os.getcwd())
+#cwd = sys.argv[0]
 AramIconFiles = listdir(cwd + "/AramIcon")
 
 for i in AramIconFiles:
