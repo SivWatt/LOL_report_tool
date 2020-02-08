@@ -60,7 +60,9 @@ def reportAPlayer(posX, posY):
 		commentText = pyautogui.locateCenterOnScreen(cwd + '/' + 'comment.PNG')
 		if commentText:
 			pyautogui.click(commentText)
-			pyperclip.copy('外掛')
+			with open(cwd + '/' + 'reportText.txt', encoding='utf8') as file:
+				data = file.read()
+			pyperclip.copy(data)
 			pyautogui.hotkey('ctrl','v')
 
 		reportConfirm = pyautogui.locateCenterOnScreen(cwd + '/' + 'reportConfirm.PNG')
