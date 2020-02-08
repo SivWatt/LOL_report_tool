@@ -12,7 +12,7 @@ from os.path import isfile, isdir, join
 
 teamY = [ 130, 165, 200, 235 ]
 enemyY = [ 310, 345, 380, 415, 450 ]
-cwd = sys.argv[0]
+cwd = os.path.dirname(sys.argv[0]) if os.path.dirname(sys.argv[0]) != "" else "."
 
 
 def windowEnumerationHandler(hwnd, top_windows):
@@ -100,7 +100,7 @@ def reportAPlayer(posX, posY):
 # main script: 
 
 # locate aram icon
-#cwd = sys.argv[0]
+
 AramIconFiles = listdir(cwd + "/AramIcon")
 
 for i in AramIconFiles:
