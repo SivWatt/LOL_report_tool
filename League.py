@@ -16,10 +16,10 @@ cwd = os.path.dirname(sys.argv[0]) if os.path.dirname(sys.argv[0]) != "" else ".
 debuglog = open('debuglog', 'w')
 
 class PreloadImage:
-	checkboxIm = Image.open(cwd + '/' + 'checkbox.PNG')
-	commentText = Image.open(cwd + '/' + 'comment.PNG')
-	cancelIm = Image.open(cwd + '/' + 'cancel.PNG')
-	reportComfirmIm = Image.open(cwd + '/' + 'reportConfirm.PNG')
+	checkboxIm = Image.open(cwd + '/image/' + 'checkbox.PNG')
+	commentText = Image.open(cwd + '/image/' + 'comment.PNG')
+	cancelIm = Image.open(cwd + '/image/' + 'cancel.PNG')
+	reportComfirmIm = Image.open(cwd + '/image/' + 'reportConfirm.PNG')
 	with open(cwd + '/' + 'reportText.txt', encoding='utf8') as file:
 		data = file.read()
 	
@@ -123,8 +123,8 @@ else:
 leagueWindow = (rect[0], rect[1], rect[2]-rect[0], rect[3]-rect[1])
 
 # preload images 
-reportButtons = loadFolderImage(cwd + '/reportIcon')
-LeaugeIcons = loadFolderImage(cwd + '/AramIcon')
+reportButtons = loadFolderImage(cwd + '/image/reportIcon')
+LeaugeIcons = loadFolderImage(cwd + '/image/AramIcon')
 
 # locate Aram or NG icon
 for im in LeaugeIcons:
