@@ -63,7 +63,7 @@ def reportAPlayer(posX, posY, leagueWindow, reportButtons):
 		pyautogui.mouseUp(reportButton,button='left')
 
 		#locate report check boxes
-		checkboxes = list(pyautogui.locateAllOnScreen(PreloadImage.checkboxIm, region=leagueWindow))
+		checkboxes = list(pyautogui.locateAllOnScreen(PreloadImage.checkboxIm, region=leagueWindow, confidence=0.9))
 		nl = len(checkboxes)
 
 		# get random numbers

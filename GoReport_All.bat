@@ -1,3 +1,4 @@
+@echo off
 REM get script directory
 cd /d %~dp0
 
