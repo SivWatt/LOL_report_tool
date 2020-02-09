@@ -1,5 +1,6 @@
 import pyautogui
 import win32gui
+from PIL import Image
 
 import time
 from random import seed
@@ -12,7 +13,16 @@ from os import listdir
 teamY = [ 130, 165, 200, 235 ]
 enemyY = [ 310, 345, 380, 415, 450 ]
 cwd = os.path.dirname(sys.argv[0]) if os.path.dirname(sys.argv[0]) != "" else "."
+debuglog = open('debuglog', 'w')
 
+class PreloadImage:
+	checkboxIm = Image.open(cwd + '/' + 'checkbox.PNG')
+	commentText = Image.open(cwd + '/' + 'comment.PNG')
+	cancelIm = Image.open(cwd + '/' + 'cancel.PNG')
+	reportComfirmIm = Image.open(cwd + '/' + 'reportConfirm.PNG')
+	with open(cwd + '/' + 'reportText.txt', encoding='utf8') as file:
+		data = file.read()
+	
 
 def windowEnumerationHandler(hwnd, top_windows):
 	top_windows.append((hwnd, win32gui.GetWindowText(hwnd)))
@@ -30,24 +40,30 @@ def myRandom():
 
 	return randomNumbers
 
-def reportAPlayer(posX, posY):
-	pyautogui.moveTo(posX, posY)
-	reportIcons = listdir(cwd + "/reportIcon")
-		
+def loadFolderImage(path):
+	reportIcons = listdir(path)
+	images = []
 	for i in reportIcons:
-		reportButton = pyautogui.locateCenterOnScreen(cwd + '/reportIcon/' + i)
+		im = Image.open(path + '/' + i)
+		images.append(im)
+
+	return images
+
+def reportAPlayer(posX, posY, leagueWindow, reportButtons):
+	pyautogui.moveTo(posX, posY)
+		
+	for im in reportButtons:
+		reportButton = pyautogui.locateCenterOnScreen(im, region=(posX, posY - 20, 300, 100))
 		if reportButton:
 			break
 	
 	if reportButton:
-		pyautogui.moveTo(reportButton)
-		#time.sleep(1)
-		#pyautogui.click(reportButton,clicks=10,interval=0.5,)
-		pyautogui.mouseDown(reportButton,button='left',duration=2.0)
+		#pyautogui.moveTo(reportButton)
+		pyautogui.mouseDown(reportButton,button='left',duration=1.0)
 		pyautogui.mouseUp(reportButton,button='left')
 
 		#locate report check boxes
-		checkboxes = list(pyautogui.locateAllOnScreen(cwd + '/' + 'checkbox.PNG'))
+		checkboxes = list(pyautogui.locateAllOnScreen(PreloadImage.checkboxIm, region=leagueWindow))
 		nl = len(checkboxes)
 
 		# get random numbers
@@ -57,25 +73,25 @@ def reportAPlayer(posX, posY):
 		for i in rn:
 			pyautogui.click(checkboxes[i])
 
-		commentText = pyautogui.locateCenterOnScreen(cwd + '/' + 'comment.PNG')
+		commentText = pyautogui.locateCenterOnScreen(PreloadImage.commentText, region=leagueWindow)
 		if commentText:
 			pyautogui.click(commentText)
-			with open(cwd + '/' + 'reportText.txt', encoding='utf8') as file:
-				data = file.read()
-			pyperclip.copy(data)
+			pyperclip.copy(PreloadImage.data)
 			pyautogui.hotkey('ctrl','v')
 
-		reportConfirm = pyautogui.locateCenterOnScreen(cwd + '/' + 'reportConfirm.PNG')
-		if reportConfirm:
-			pyautogui.moveTo(reportConfirm)
-			pyautogui.click(reportConfirm)
-
 		# cancel report for testing
-		#cancel = pyautogui.locateCenterOnScreen('cancel.PNG')
+		#cancel = pyautogui.locateCenterOnScreen(PreloadImage.cancelIm, region=leagueWindow)
 		#if cancel:
 		#	pyautogui.click(cancel)
 
-
+		reportConfirm = pyautogui.locateCenterOnScreen(PreloadImage.reportComfirmIm, region=leagueWindow)
+		if reportConfirm:
+			pyautogui.moveTo(reportConfirm)
+			pyautogui.click(reportConfirm)
+	else:
+		debuglog.write('report fail\n')
+		
+		
 #################################################
 # main script: 
 
@@ -88,6 +104,7 @@ if __name__ == "__main__":
 		if "league of legend" in i[1].lower():
 			win32gui.ShowWindow(i[0], 9)
 			win32gui.SetForegroundWindow(i[0])
+			rect = win32gui.GetWindowRect(i[0])
 			break
 
 # get argument to know how to report
@@ -102,16 +119,25 @@ if len(sys.argv) > 1:
 else:
 	ys = enemyY
 
-# locate aram icon
-AramIconFiles = listdir(cwd + "/AramIcon")
+# get league window position and size
+leagueWindow = (rect[0], rect[1], rect[2]-rect[0], rect[3]-rect[1])
 
-for i in AramIconFiles:
-	AramIcon = pyautogui.locateCenterOnScreen(cwd + '/AramIcon/' + i)
+# preload images 
+reportButtons = loadFolderImage(cwd + '/reportIcon')
+LeaugeIcons = loadFolderImage(cwd + '/AramIcon')
+
+# locate Aram or NG icon
+for im in LeaugeIcons:
+	AramIcon = pyautogui.locateCenterOnScreen(im, region=leagueWindow, confidence=0.9)
 	if AramIcon:
+		debuglog.write('find aram\n')
 		break
 
 if AramIcon:
 	for y in ys:
-		reportAPlayer(AramIcon.x, AramIcon.y + y)
+		reportAPlayer(AramIcon.x, AramIcon.y + y, leagueWindow, reportButtons)
+else:
+	debuglog.write('aram not found\n')
 
+debuglog.close()
 #################################################
