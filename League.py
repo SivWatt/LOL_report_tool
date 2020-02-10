@@ -37,8 +37,8 @@ class PreloadImage:
 		win32gui.EnumWindows(f, top_windows)
 		for i in top_windows:
 			if "league of legend" in i[1].lower():
-				win32gui.ShowWindow(i[0], 9)
-				win32gui.SetForegroundWindow(i[0])
+				#win32gui.ShowWindow(i[0], 9)
+				#win32gui.SetForegroundWindow(i[0])
 				break
 		return i[0]
 
@@ -167,7 +167,7 @@ def reportAPlayer(posX, posY):
 		pyautogui.mouseUp(reportButton,button='left')
 
 		#locate report check boxes
-		checkboxes = list(pyautogui.locateAllOnScreen(PreloadImage.checkboxIm, region=PreloadImage.windowSize, confidence=0.9))
+		checkboxes = list(pyautogui.locateAllOnScreen(PreloadImage.checkboxIm, region=PreloadImage.windowSize, confidence=0.7))
 		
 		#TODO optimize here 
 		if checkboxes:
