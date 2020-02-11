@@ -17,7 +17,7 @@ from tkinter import ttk
 teamY = [ 130, 165, 200, 235 ]
 enemyY = [ 310, 345, 380, 415, 450 ]
 cwd = os.path.dirname(sys.argv[0]) if os.path.dirname(sys.argv[0]) != "" else "."
-debuglog = open('debuglog', 'w')
+debuglog = open('debuglog.log', 'w')
 
 class PreloadImage:
 	def loadFolderImage(path):
