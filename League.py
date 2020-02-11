@@ -74,6 +74,8 @@ def findLeagueIcon(windowSize):
 window = tkinter.Tk()
 window.title('水水牌檢舉器')
 window.configure(background='white')
+window.iconbitmap(cwd + "/image/rsc/window_icon.ico")
+window.geometry("+1600+700")
 
 top_frame = ttk.Frame(window)
 top_frame.pack()
