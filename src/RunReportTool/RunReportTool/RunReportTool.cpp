@@ -12,10 +12,12 @@ namespace fs = filesystem;
 int main(int argc, const char * argv[])
 {
 	fs::path currPath = fs::current_path();
-	string strCmd = "start /b pythonw ";
+	wstring wstrCmd = L"start /b pythonw ";
 
-	strCmd += currPath.u8string();
-	strCmd += "\\League.py";
+	wstrCmd += currPath.wstring();
+	wstrCmd += L"\\League.py";
 
-	system( strCmd.c_str() );
+	_wsystem( wstrCmd.c_str() );
+
+	return 0;
 }
