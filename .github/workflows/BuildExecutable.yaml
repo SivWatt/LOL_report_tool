@@ -15,12 +15,12 @@ jobs:
       #   run: echo $PWD
 
       - name: Package Application
-       uses: JackMcKew/pyinstaller-action-windows@main
-       with:
-         path: $PWD
+        uses: JackMcKew/pyinstaller-action-windows@main
+        with:
+          path: $PWD
 
       - name: Upload artifacts
-       uses: actions/upload-artifact@v2
-       with: 
-         name: LOL_report.exe
-         path: $PWD/dist/windows
+        uses: actions/upload-artifact@v2
+        with: 
+          name: LOL_report.exe
+          path: $PWD/dist/windows
