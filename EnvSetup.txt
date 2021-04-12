@@ -1,8 +1,0 @@
-Environment setup
-
-TODO: use a script to setup
-
-1. Install python 3.7.3
-2. python get pip -> python get-pip.py
-3. python -m pip install pyautogui
-4. python -m pip install pywin32
