@@ -14,10 +14,10 @@ jobs:
       - name: Package Application
         uses: JackMcKew/pyinstaller-action-windows@main
         with:
-          path: ${{ github.workspace }}
+          path: .
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with: 
           name: LOL_report.exe
-          path: ${{ github.workspace }}/dist/windows
+          path: ./dist/windows
