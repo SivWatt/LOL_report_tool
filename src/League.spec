@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis([League.py'],
+a = Analysis(['League.py'],
              pathex=['E:\\Python37\\Scripts'],
              binaries=[],
              datas=[],
