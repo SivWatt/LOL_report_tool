@@ -11,16 +11,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # - name: print pwd 2
-      #   run: echo $PWD
-
       - name: Package Application
         uses: JackMcKew/pyinstaller-action-windows@main
         with:
-          path: $PWD
+          path: src
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with: 
           name: LOL_report.exe
-          path: $PWD/dist/windows
+          path: src/dist/windows
