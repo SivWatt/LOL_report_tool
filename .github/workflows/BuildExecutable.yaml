@@ -14,6 +14,9 @@ jobs:
       - name: echo path
         run: echo ${{ github.workspace }}
 
+      - name: list files
+        run: ll ${{ github.workspace }}
+
       #- name: Package Application
       #  uses: JackMcKew/pyinstaller-action-windows@main
       #  with:
