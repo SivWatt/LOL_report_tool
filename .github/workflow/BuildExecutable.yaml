@@ -1,0 +1,24 @@
+name: Build Windows Executable with Pyinstaller
+
+on: 
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+- jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+      - uses: actions/checkout@v2
+
+      - name: Package Application
+        uses: JackMcKew/pyinstaller-action-windows@main
+        with:
+          path: ${{ github.workspace }}
+
+      - name: Upload artifacts
+      - uses: actions/upload-artifact@v2
+        with: LOL_report.exe
+        path: ${{ github.workspace }}/dist/windows
