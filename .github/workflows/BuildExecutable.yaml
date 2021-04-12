@@ -18,5 +18,6 @@ jobs:
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
-        with: LOL_report.exe
-        path: ${{ github.workspace }}/dist/windows
+        with: 
+          name: LOL_report.exe
+          path: ${{ github.workspace }}/dist/windows
