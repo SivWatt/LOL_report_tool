@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Package Application
         uses: JackMcKew/pyinstaller-action-windows@main
@@ -17,6 +17,6 @@ jobs:
           path: ${{ github.workspace }}
 
       - name: Upload artifacts
-      - uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2
         with: LOL_report.exe
         path: ${{ github.workspace }}/dist/windows
