@@ -11,23 +11,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: echo path
-        run: echo ${{ github.workspace }}
-
-      - name: list files
-        run: ls ${{ github.workspace }}
-      - name: print pwd 1
-        run: pwd
       - name: print pwd 2
-        run: echo $$PWD
+        run: echo $PWD
 
       #- name: Package Application
       #  uses: JackMcKew/pyinstaller-action-windows@main
       #  with:
-      #    path: ${{ github.workspace }}
+      #    path: $PWD
 
       #- name: Upload artifacts
       #  uses: actions/upload-artifact@v2
       #  with: 
       #    name: LOL_report.exe
-      #    path: ${{ github.workspace }}/dist/windows
+      #    path: $PWD/dist/windows
