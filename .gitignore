@@ -4,3 +4,6 @@ TODO.txt
 
 #log files 
 *.log
+
+# executables
+*.exe
