@@ -30,12 +30,17 @@ jobs:
         run: |
           pyinstaller -F -w League.py
 
+      - name: Compress release package
+        run: |
+          7z a -tzip LOL_report_tool.zip @7zip_list_file.txt
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with: 
-          name: League.exe
-          path: dist
+          name: LOL_report_tool.zip
+          path: .
 
       # TODO: pack the exe and images in a zip and release it
-      # pack with -F not -D
+      
+      # Install dep via requirements.txt
       # pip install -r requirements.txt

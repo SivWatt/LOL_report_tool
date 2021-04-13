@@ -1,0 +1,3 @@
+image\*
+League.exe
+reportText.txt
