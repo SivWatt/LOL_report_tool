@@ -20,6 +20,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pyinstaller
+          pip install -r requirements.txt
 
       - name: Build with pyinstaller
         run: |
@@ -30,6 +31,6 @@ jobs:
         with: 
           name: League.exe
           path: dist
-          
+
       # TODO: pack the exe and images in a zip and release it
       # pack with -F not -D
