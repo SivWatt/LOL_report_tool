@@ -32,7 +32,7 @@ jobs:
 
       - name: Compress release package
         run: |
-          7z a -tzip LOL_report_tool.zip @7zip_list_file.txt
+          7z a -tzip LOL_report_tool.zip '@7zip_list_file.txt'
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
