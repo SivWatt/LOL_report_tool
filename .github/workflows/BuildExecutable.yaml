@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with: 
           name: LOL_report_tool.zip
-          path: .
+          path: LOL_report_tool.zip
 
       # TODO: pack the exe and images in a zip and release it
       
