@@ -39,5 +39,4 @@ scipy==1.3.0
 six==1.12.0
 sqlparse==0.3.0
 typing-extensions==3.7.4.3
-vboxapi==1.0
 zipp==3.4.1
