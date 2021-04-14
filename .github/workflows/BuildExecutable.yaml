@@ -33,6 +33,7 @@ jobs:
 
       - name: Compress release package
         run: |
+          mv dist/League.exe League.exe
           7z a -tzip LOL_report_tool.zip '@7zip_list_file.txt'
 
       - name: Create Release
