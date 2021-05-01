@@ -6,7 +6,7 @@ Automatically report players after a game at statistic window.
 ## Usage
 ### English
 Run `League.exe` as administrator and the GUI will show.  
-![GUI](/image/README/main-window.PNG?raw=true)
+![GUI](/doc/main-window.PNG?raw=true)
   - Press `TEAM` to report __ALL__ of the players in your team  
   - Press `ENEMY` to report __ALL__ of the players in opponent team  
   - Press `ALL` to report literally all players except yourself  
@@ -17,7 +17,7 @@ _Note that modifying `reportText.txt` takes effect after next time you restart `
 
 ### 中文
 以系統管理員執行 `League.exe` 即可看到圖形化介面。  
-![GUI](/image/README/main-window.PNG?raw=true)
+![GUI](/doc/main-window.PNG?raw=true)
   - 按下 `TEAM` 以檢舉**所有**同隊的隊友  
   - 按下 `ENEMY` 以檢舉**所有**同隊的隊友  
   - 按下 `ALL`  以檢舉**所有**同隊的隊友  
