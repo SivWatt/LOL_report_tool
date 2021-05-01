@@ -26,4 +26,4 @@ _Note that modifying `reportText.txt` takes effect after next time you restart `
 _注意：如果更改了`reportText.txt`的內容，必須重新啟動`League.exe`，檢舉訊息的更改才會生效。_
 
 ## Development
-If you encounter any problem, feel free to let me know via creating issues.
+If you encounter any problem, feel free to let me know via creating [issues](https://github.com/SivWatt/LOL_report_tool/issues).
