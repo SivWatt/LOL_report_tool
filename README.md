@@ -3,6 +3,9 @@
 ![Test Status](https://github.com/SivWatt/LOL_report_tool/actions/workflows/BuildExecutable.yaml/badge.svg)  
 Automatically report players after a game at statistic window.
 
+## Download
+Go to [Release](https://github.com/SivWatt/LOL_report_tool/releases/latest) page and download __LOL_report_tool.zip__
+
 ## Usage
 ### English
 Run `League.exe` as administrator and the GUI will show.  
@@ -24,6 +27,17 @@ _Note that modifying `reportText.txt` takes effect after next time you restart `
 
 檢舉的訊息來自 `reportText.txt`，使用者可以自行編輯其內容以達到個人的需求。  
 _注意：如果更改了`reportText.txt`的內容，必須重新啟動`League.exe`，檢舉訊息的更改才會生效。_
+
+## Supported Modes
+Currently, this tool recognizes game mode image on the upper-left corner of __League of Legend Client__ window.  
+If the game mode image is not included, it won't start reporting players.  
+### Supports
+- ARAM
+
+## Troubleshooting
+Most of the problems users come into are about images recognizing.  
+You can take a look at `debuglog.log` to see which image the tool mismatches.  
+And for image issues, it can simply be fixed by replacing image with screenshoted one by user himself/herself.
 
 ## Development
 If you encounter any problem, feel free to let me know via creating [issues](https://github.com/SivWatt/LOL_report_tool/issues).
