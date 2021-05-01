@@ -1,24 +1,29 @@
 # LOL Report Tool
-
-Automatically report players.
-
-## Environment Setup 
-### English
-1. Install Python 3.7.3 from:  
-	https://www.python.org/ftp/python/3.7.3/python-3.7.3-amd64.exe
-2. check "Add Python 3.7 to PATH"  
-![python install](/image/README/python-install.png?raw=true)
-3. Run setup.bat as Administrator
-
-### 中文
-1. 安裝 Python 3.7.3:  
-	https://www.python.org/ftp/python/3.7.3/python-3.7.3-amd64.exe
-2. 把 "Add Python 3.7 to PATH" 打勾  
-![python install](/image/README/python-install.png?raw=true)
-3. 以系統管理員身分執行 setup.bat
+![version](https://img.shields.io/github/v/release/SivWatt/LOL_report_tool)
+![Test Status](https://github.com/SivWatt/LOL_report_tool/actions/workflows/BuildExecutable.yaml/badge.svg)  
+Automatically report players after a game at statistic window.
 
 ## Usage
-- Run RunReportTool.exe as administrator and the GUI will show.  
+### English
+Run `League.exe` as administrator and the GUI will show.  
 ![GUI](/image/README/main-window.PNG?raw=true)
-- The report message is from "reportText.txt" file.  
-You can change it to anything you want.
+  - Press `TEAM` to report __ALL__ of the players in your team  
+  - Press `ENEMY` to report __ALL__ of the players in opponent team  
+  - Press `ALL` to report literally all players except yourself  
+
+The report message is copied from `reportText.txt`.  
+User can modify the content to whatever he wants to meet his need.  
+_Note that modifying `reportText.txt` takes effect after next time you restart `League.exe`_
+
+### 中文
+以系統管理員執行 `League.exe` 即可看到圖形化介面。  
+![GUI](/image/README/main-window.PNG?raw=true)
+  - 按下 `TEAM` 以檢舉**所有**同隊的隊友  
+  - 按下 `ENEMY` 以檢舉**所有**同隊的隊友  
+  - 按下 `ALL`  以檢舉**所有**同隊的隊友  
+
+檢舉的訊息來自 `reportText.txt`，使用者可以自行編輯其內容以達到個人的需求。  
+_注意：如果更改了`reportText.txt`的內容，必須重新啟動`League.exe`，檢舉訊息的更改才會生效。_
+
+## Development
+If you encounter any problem, feel free to let me know via creating issues.
