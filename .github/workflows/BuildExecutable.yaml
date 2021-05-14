@@ -24,15 +24,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with: 
-          name: requirements.zip
-          path: requirements.txt
-          retention-days: 7
-
       - name: Build with pyinstaller
-       run: |
+        run: |
          pyinstaller -F -w -i image/rsc/window_icon.ico -n ${{ env.EXE_NAME }} League.py
 
       - name: Compress release package
