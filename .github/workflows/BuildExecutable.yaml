@@ -8,6 +8,8 @@ name: Release Package With Version
 jobs:
   build:
     runs-on: windows-latest
+    enc:
+      EXE_NAME: LeagueReport
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -20,21 +22,23 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pyinstaller
-          pip install opencv-python
-          pip install pyautogui
-          pip install pyperclip
-          pip install pywin32
+          pip install -r requirements.txt
 
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with: 
+          name: requirements.zip
+          path: requirements.txt
+          retention-days: 7
 
       - name: Build with pyinstaller
-        run: |
-          pyinstaller -F -w League.py
+       run: |
+         pyinstaller -F -w -i image/rsc/window_icon.ico -n ${{ env.EXE_NAME }} League.py
 
       - name: Compress release package
         run: |
-          mv dist/League.exe League.exe
-          7z a -tzip LOL_report_tool.zip '@7zip_list_file.txt'
+          mv dist/${{ env.EXE_NAME }}.exe ${{ env.EXE_NAME }}.exe
+          7z a -tzip ${{ env.EXE_NAME }}.zip '@7zip_list_file.txt'
 
       - name: Create Release
         id: create_release
@@ -54,18 +58,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: LOL_report_tool.zip
-          asset_name: LOL_report_tool.zip
+          asset_path: ${{ env.EXE_NAME }}.zip
+          asset_name: ${{ env.EXE_NAME }}.zip
           asset_content_type: application/zip
-
-      # - name: Upload artifacts
-      #   uses: actions/upload-artifact@v2
-      #   with: 
-      #     name: LOL_report_tool.zip
-      #     path: LOL_report_tool.zip
-      #     retention-days: 7
-
-      # TODO: pack the exe and images in a zip and release it
-      
-      # Install dep via requirements.txt
-      # pip install -r requirements.txt
