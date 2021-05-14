@@ -8,7 +8,7 @@ name: Release Package With Version
 jobs:
   build:
     runs-on: windows-latest
-    enc:
+    env:
       EXE_NAME: LeagueReport
     steps:
       - name: Checkout code
