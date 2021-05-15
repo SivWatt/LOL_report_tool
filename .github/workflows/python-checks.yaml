@@ -7,8 +7,8 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-    runs-on: windows-latest
+  lint:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
