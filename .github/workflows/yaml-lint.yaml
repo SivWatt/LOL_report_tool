@@ -2,9 +2,9 @@ name: YAML Lint
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ master ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ master ]
 
 jobs:
   Lint:
@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v1
+
+      - name: echo stuff
+        run: echo $default-branch
 
       - name: YAML Lint
         uses: ibiqlik/action-yamllint@v3
