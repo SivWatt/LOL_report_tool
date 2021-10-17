@@ -26,7 +26,7 @@ jobs:
 
       - name: Build with pyinstaller
         run: |
-         pyinstaller -F -w -i image/rsc/window_icon.ico -n ${{ env.EXE_NAME }} League.py
+         pyinstaller -F -w -i image/rsc/window_icon.ico -n ${{ env.EXE_NAME }} main.py
 
       - name: Compress release package
         run: |

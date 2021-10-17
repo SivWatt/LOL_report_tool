@@ -1,5 +1,5 @@
 # Specify filepatterns you want git to ignore.
-
+__pycache__
 TODO.txt
 
 #log files 
