@@ -8,7 +8,7 @@ Currently, it works well in __Taiwan__ client, not sure if it works in clients w
 Here is __Traditional Chinese__ version of README. [繁體中文版](/README_Chinese.md)
 
 ## Download
-Go to [Release](https://github.com/SivWatt/LOL_report_tool/releases/latest) page and download __LOL_report_tool.zip__.
+Go to [Release](https://github.com/SivWatt/LOL_report_tool/releases/latest) page and download __LeagueReport.zip__.
 
 ## Usage
 Run `League.exe` as __administrator__ and the GUI will show.  
