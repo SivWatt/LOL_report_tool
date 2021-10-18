@@ -11,7 +11,7 @@ Here is __Traditional Chinese__ version of README. [繁體中文版](/README_Chi
 Go to [Release](https://github.com/SivWatt/LOL_report_tool/releases/latest) page and download __LOL_report_tool.zip__.
 
 ## Usage
-Run `League.exe` as administrator and the GUI will show.  
+Run `League.exe` as __administrator__ and the GUI will show.  
 ![GUI](/doc/main-window.PNG?raw=true)
   - Press `TEAM` to report __ALL__ of the players in your team  
   - Press `ENEMY` to report __ALL__ of the players in opponent team  
@@ -26,6 +26,7 @@ Currently, this tool recognizes game mode image on the upper-left corner of __Le
 If the game mode image is not included, it won't start reporting players.  
 ### Supports
 - ARAM
+- Nexus Blitz
 
 ## Troubleshooting
 Most of the problems users come into are about images recognizing.  
