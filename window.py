@@ -21,6 +21,10 @@ class WindowProperty:
 		win32gui.ShowWindow(self.hwnd, 9)
 		win32gui.SetForegroundWindow(self.hwnd)
 
+	# return window size
+	def getSize(self):
+		return (self.rect[2], self.rect[3])
+
 # end of class WindowProperty
 
 # class for locating league client window
