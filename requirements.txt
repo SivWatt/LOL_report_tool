@@ -13,7 +13,7 @@ Pillow==9.0.1
 pipx==0.16.2.1
 PyAutoGUI==0.9.52
 PyGetWindow==0.0.9
-pyinstaller==4.3
+pyinstaller==5.0.1
 pyinstaller-hooks-contrib==2021.1
 PyMsgBox==1.0.9
 pyparsing==2.4.7
