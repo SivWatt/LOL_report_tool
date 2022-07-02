@@ -14,6 +14,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Make package name
+        run: |
+          ver=${{ github.ref }}
+          ver=${ver##*/}
+          echo "PKG_NAME=${{ env.EXE_NAME }}_${ver//./_}" >> $GITHUB_ENV
+        shell: bash
+
       - name: Set up Python 3.7
         uses: actions/setup-python@v1
         with:
@@ -31,7 +38,7 @@ jobs:
       - name: Compress release package
         run: |
           mv dist/${{ env.EXE_NAME }}.exe ${{ env.EXE_NAME }}.exe
-          7z a -tzip ${{ env.EXE_NAME }}.zip '@7zip_list_file.txt'
+          7z a -tzip ${{ env.PKG_NAME }}.zip '@7zip_list_file.txt'
 
       - name: Create Release
         id: create_release
@@ -51,6 +58,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ env.EXE_NAME }}.zip
-          asset_name: ${{ env.EXE_NAME }}.zip
+          asset_path: ${{ env.PKG_NAME }}.zip
+          asset_name: ${{ env.PKG_NAME }}.zip
           asset_content_type: application/zip
