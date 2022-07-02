@@ -78,6 +78,8 @@ class Reporter:
 		pyautogui.moveTo(reportPoint)
 		pyautogui.mouseDown(reportPoint, button='left', duration=1.0)
 		pyautogui.mouseUp(reportPoint, button='left')
+
+		time.sleep(1.5)
 		
 		self.logger.info("locate check boxes")
 		# locate report check boxes
