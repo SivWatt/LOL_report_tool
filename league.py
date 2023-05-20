@@ -86,8 +86,7 @@ class Reporter:
 		checkboxes = list(pyautogui.locateAllOnScreen(self.images.checkbox, region=leagueRegion, confidence=0.7))
 		
 		if checkboxes:
-			# get random numbers
-			rn = myRandom()
+			rn = [0, 1, 2, 3, 4, 5, 6]
 
 			# click check boxes
 			for i in rn:
@@ -125,13 +124,3 @@ class Reporter:
 			# cancel report and go on.
 			cancel = pyautogui.Point(self.cancel_1280_720.x + leagueRegion[0], self.cancel_1280_720.y + leagueRegion[1])
 			pyautogui.click(cancel)
-
-def myRandom():
-	seed(time.time())
-	randomNumbers = []
-	for i in range(0,3):
-		rn = randint(0,6)
-		while rn in randomNumbers:
-			rn = randint(0,6)
-		randomNumbers.append(rn)
-	return randomNumbers
