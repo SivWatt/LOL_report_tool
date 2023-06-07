@@ -20,7 +20,7 @@ class Reporter:
 		with open(os.path.join(cwd, 'reportText.txt'), encoding='utf8') as file:
 			self.reportText = file.read()
 
-		self.cancel_1280_720 = pyautogui.Point(820, 88)
+		self.cancel_1280_720 = pyautogui.Point(865, 75)
 		self.team_1280_720 = [	
 								pyautogui.Point(280, 150), 
 								pyautogui.Point(280, 190), 
@@ -86,12 +86,9 @@ class Reporter:
 		checkboxes = list(pyautogui.locateAllOnScreen(self.images.checkbox, region=leagueRegion, confidence=0.7))
 		
 		if checkboxes:
-			# get random numbers
-			rn = myRandom()
-
-			# click check boxes
-			for i in rn:
-				pyautogui.click(checkboxes[i])
+			# now we can check them all
+			for cb in checkboxes:
+				pyautogui.click(cb)
 		
 			# paste report text to comment text field
 			commentTextField = pyautogui.locateCenterOnScreen(self.images.commentText, region=leagueRegion)
